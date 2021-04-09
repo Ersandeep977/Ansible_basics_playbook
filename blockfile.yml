@@ -1,0 +1,18 @@
+---
+# this playbook to work crate a file and add some data 
+- hosts: demo
+  become: yes
+  tasks:
+    - name: creating the file file.txt
+      file:
+        path: /home/ansible/file.txt
+        state: touch
+
+    - name: add content to the file.txt file
+      blockinfile:
+        path: /home/ansible/file.txt
+        block: |
+          hello this file.txt
+          is created by this
+          block     
+    

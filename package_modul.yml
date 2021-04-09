@@ -1,0 +1,9 @@
+--- # install apache2/httpd using packge module this playbook are working in both redhat and debine family
+- hosts: all
+  become: yes
+  tasks:
+    - name: installing apache2
+      package:
+        name: apache2
+        state: present
+        update_cache: yes

@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: yes 
+  tasks: 
+    - name: installing java 
+      apt:
+        name: openjdk-8-jdk
+        state: present
+        update_cache: yes
+    - name: installing tomcat8
+      apt:
+        name: tomcat8
+        state: present 
+        update_cache: yes
+    - name: copying the war file
+      copy:
+        src: /home/ansible/SampleWebApp.war
+        dest: /var/lib/tomcat8/webapps/
+    - name: restart the tomcat8
+      service:
+        name: tomcat8
+        state: restarted

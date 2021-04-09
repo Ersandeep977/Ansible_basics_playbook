@@ -1,0 +1,15 @@
+--- # unlistalled the JAVA and TOMCAT services
+- hosts: all
+  become: yes
+  tasks:
+    - name: uninstalling java 8 
+      apt:
+        name: openjdk-8-jdk
+        state: absent
+        update_cache: yes
+    - name: uninstalling tomcat8 
+      apt: 
+        name: tomcat8
+        state: absent
+        update_cache: yes
+    

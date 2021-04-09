@@ -1,0 +1,14 @@
+---
+- import_playbook: java.yml
+- hosts: all
+  become: yes
+  tasks:
+    - name: installing tomcat8
+      apt:
+        name: tomcat8
+        state: present
+        update_cache: yes
+    - name: restart the tomcat8
+      service:
+        name: tomcat8
+        state: restarted

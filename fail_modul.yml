@@ -1,0 +1,14 @@
+--- # this playbook are working only Debian family other wise given the error mag
+- hosts: ubuntu
+  become: yes
+  tasks:
+    - name: fail if the os is other than the debian
+      fail:
+        msg: the playbook run only for the debian os
+      when: ansible_facts['os_family'] != "Debian"
+    - name: installing apache2
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+      when: ansible_facts['os_family'] == "Debian"

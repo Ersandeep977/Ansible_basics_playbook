@@ -1,0 +1,18 @@
+--- # install the JAVA and TOMCAT and start server
+- hosts: all
+  become: yes
+  tasks:
+    - name: installing java 8 
+      apt:
+        name: openjdk-8-jdk
+        state: present
+        update_cache: yes
+    - name: installing tomcat8 
+      apt: 
+        name: tomcat8
+        state: present
+        update_cache: yes
+    - name: restart the tomcat8 
+      service:
+         name: tomcat8
+         state: restarted

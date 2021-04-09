@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - copy:
+        src: /home/ansible/s.txt
+        dest: /home/ansible/backup/
