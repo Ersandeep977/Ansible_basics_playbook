@@ -2,6 +2,16 @@
   - name: Shell Examples
     hosts: all
     tasks:
+    
+    
+    - name: sending bash file to node
+      copy: 
+        src: /home/devops/sample.sh
+        dest: /home/devops/
+    - name: running bash fike
+      shell: /bin/bash/ /home/devops/sample.sh
+      
+      
 
     - name: Check Date with Shell command
       shell:
